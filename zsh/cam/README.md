@@ -309,25 +309,25 @@ git clone https://github.com/simas2024/RPiTools.git
 
 ```bash
 cd RPiTools
-chmod +x zsh/innocam/capture01.zsh
+chmod +x zsh/cam/capture01.zsh
 ```
 
 Navigate to the directory where the repository was cloned, and optionally create a global symlink:
 
 ```bash
-sudo ln -s "$PWD/zsh/innocam/capture01.zsh" /usr/local/bin/capture
+sudo ln -s "$PWD/zsh/cam/capture01.zsh" /usr/local/bin/capture
 ```
 
 Alternatively, run it directly from the repository directory:
 
 ```bash
-./zsh/innocam/capture01.zsh
+./zsh/cam/capture01.zsh
 ```
 
 To use a self-compiled GStreamer version:
 
 ```bash
-./zsh/innocam/capture01.zsh --gst --gstver /opt/gstreamer/1.26.2/bin/gst-launch-1.0 --clientip 192.168.0.100 --clientport 6000
+./zsh/cam/capture01.zsh --gst --gstver /opt/gstreamer/1.26.2/bin/gst-launch-1.0 --clientip 192.168.0.100 --clientport 6000
 ```
 
 Show the help to choose the right options and values:
@@ -339,7 +339,7 @@ capture --help
 or
 
 ```bash
-./zsh/innocam/capture01.zsh --help
+./zsh/cam/capture01.zsh --help
 ```
 
 Press `c` to capture a still image (saved on the Pi).
