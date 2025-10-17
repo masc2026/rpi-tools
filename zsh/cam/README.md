@@ -304,7 +304,7 @@ Depending on the streaming mode you selected in the script:
 On the Server (Raspberry Pi):
 
 ```bash
-git clone https://github.com/simas2024/RPiTools.git
+git clone https://github.com/masc2026/RPiTools.git
 ```
 
 ```bash

@@ -105,7 +105,7 @@ Commands and Tools:
 Clone repository:
 
 ```zsh
-git clone https://github.com/simas2024/RPiTools.git
+git clone https://github.com/masc2026/RPiTools.git
 ```
 
 Navigate to the directory where the repository was cloned:
@@ -144,11 +144,11 @@ The example script for a RC servo and LEDs control is located at:
 This script uses functions defined in:
 - `./zsh/pwm/pwm.zsh`
 
-Demo: https://youtu.be/Z8dT_J9DFvU
+Demo: https://drive.google.com/file/d/1zIY0bHl3IQCJqwOdy2h5W7tl6sg9Qnz4/view
 
 <div align="left">
-      <a href="https://youtu.be/Z8dT_J9DFvU">
-         <img src="https://img.youtube.com/vi/Z8dT_J9DFvU/0.jpg" style="width:500px;">
+      <a href="https://drive.google.com/file/d/1zIY0bHl3IQCJqwOdy2h5W7tl6sg9Qnz4/view">
+         <img src="./img/Servo01.jpg" style="width:500px;">
       </a>
 </div>
 
