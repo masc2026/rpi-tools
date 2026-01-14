@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "🔥 Docker Web Server Update",
+            "type": "shell",
+            "command": "docker compose down --volumes && docker compose up -d --build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

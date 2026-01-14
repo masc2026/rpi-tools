@@ -1,0 +1,21 @@
+# Abhängigkeiten (werden beim Bauen frisch installiert)
+node_modules/
+**/node_modules/
+
+# Build-Ordner (wird jedes Mal neu erzeugt)
+dist/
+**/dist/
+
+# System-Dateien (Mac/Windows Müll)
+.DS_Store
+Thumbs.db
+
+# Docker Volumes/Daten (falls du sie im Projektordner hast)
+forgejo-data/
+gitea-data/
+mysql-data/
+
+# Umgebungsvariablen mit Passwörtern (Sicherheitsrisiko!)
+.env
+
+*.log

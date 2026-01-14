@@ -1,0 +1,84 @@
+services:
+  # 1. Forgejo (Git Server) - Übernommen aus override
+  forgejo:
+    build:
+      context: ./forgejo
+      dockerfile: Dockerfile
+    container_name: forgejo
+    restart: always
+    #environment:
+    #  #- FORGEJO__picture__LOGO=/data/gitea/custom/public/img/logo.svg
+    #  #- FORGEJO__picture__FAVICON=/data/gitea/custom/public/img/favicon.ico
+    #  #- FORGEJO__picture__DISABLE_GRAVATAR=true
+    # #- FORGEJO__server__APP_NAME=simas Git
+    volumes:
+      - ./forgejo-data:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "2222:22"
+    networks:
+      - app-network
+
+  # 2. Backend (Node.js API) - Optimiert für Produktion
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: always
+    environment:
+      - NODE_ENV=production
+    # Falls dein Dockerfile kein CMD hat, nutze: command: node server.js
+    # Wir entfernen hier das Volume "./backend:/app", damit der gebaute Code genutzt wird.
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  # 3. Frontend (Builder) - Baut HTML/JS und speichert es im Volume
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    environment:
+      - NODE_ENV=production
+    command: npm run build
+    volumes:
+      # Hier landen die fertigen Dateien
+      - vue_static_files:/app/dist
+    networks:
+      - app-network
+
+  # 4. Nginx (Webserver) - Liefert die Dateien aus
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    restart: always
+    environment:
+      - ENV_MODE=production
+    volumes:
+      - vue_static_files:/usr/share/nginx/html
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "80:5000"
+    depends_on:
+      - backend
+      - frontend
+      - forgejo
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  vue_static_files:
