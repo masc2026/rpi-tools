@@ -19,13 +19,11 @@ Skripte für das Streaming und die Aufnahme von Bildern mit den Kameramodulen In
 
 ## Plattformen
 
-Tests für das Streaming fanden auf diesen Systemen statt:
-
 ### Raspberry Pi OS (Server)
 
-- OS: Debian GNU/Linux bookworm 12.11 aarch64
+- OS: Raspberry Pi OS 13.3 (trixie) aarch64
 - Host: Raspberry Pi 5 8GB
-- Kernel: Linux 6.12.25+rpt-rpi-2712
+- Kernel: Linux 6.12.62+rpt-rpi-2712
 - Shell: zsh 5.9
 
 ### Linux (Client)

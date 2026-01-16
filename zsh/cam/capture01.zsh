@@ -108,7 +108,7 @@ function start_preview() {
     elif [[ "$STREAMER" == "gst" && "$GST_PROT" == "rtp" ]]; then
         CAMERA_PATH=${CAMERA_PATH_MAP[$STREAMCAM]}
         "${GST_CMD}" libcamerasrc camera-name="$CAMERA_PATH" af-mode=continuous ! \
-            video/x-raw,width=$WIDTH,height=$HEIGHT,framerate=${FRAMERATE}/1 ! \
+            video/x-raw,width=$WIDTH,height=$HEIGHT,framerate=${FRAMERATE}/1,format=NV12 ! \
             queue max-size-buffers=0 max-size-time=0 max-size-bytes=0 leaky=downstream ! \
             x264enc tune=zerolatency speed-preset=ultrafast key-int-max=30 insert-vui=1 ! \
             h264parse ! \
