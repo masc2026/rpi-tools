@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//macOS 14.4.1//EN
+N:Mustermann;Max;;;
+FN:Max Mustermann
+EMAIL;type=INTERNET;type=HOME;type=pref:max@simas.local
+TEL;type=HOME;type=VOICE;type=pref:+49 YYYY XXXXXXX
+item1.ADR;type=HOME;type=pref:;;Musterstraße 30;Musterstadt;;ZZZZZ;Deutschland
+item1.X-ABADR:de
+item2.URL;type=pref:https://www.simas.local
+item2.X-ABLabel:_$!<HomePage>!$_
+END:VCARD
